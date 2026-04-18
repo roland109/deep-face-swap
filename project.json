@@ -1,0 +1,21 @@
+{
+  "overview": "A stunning AI-powered face swap web app inspired by Deep Live Cam. Upload a source face and a target photo, hit swap, and download the result. Powered by Replicate's face-swap AI model with a dark, futuristic UI.",
+  "features": [
+    "Drag-and-drop image upload with live previews",
+    "AI face swap via Replicate API",
+    "Real-time processing progress and status",
+    "Download swapped result with one click",
+    "Dark futuristic UI with neon accents and glassmorphism",
+    "Mobile-responsive layout"
+  ],
+  "category": "ai-tools",
+  "tags": [
+    "face-swap",
+    "ai",
+    "deep-live-cam",
+    "replicate",
+    "image-processing",
+    "dark-theme"
+  ],
+  "last_updated": "2026-04-18T22:56:51.428Z"
+}

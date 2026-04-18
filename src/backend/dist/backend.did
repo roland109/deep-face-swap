@@ -1,0 +1,56 @@
+type http_request_result = 
+ record {
+   body: blob;
+   headers: vec http_header;
+   status: nat;
+ };
+type http_header = 
+ record {
+   name: text;
+   value: text;
+ };
+type TransformationOutput = 
+ record {
+   body: blob;
+   headers: vec http_header;
+   status: nat;
+ };
+type TransformationInput = 
+ record {
+   context: blob;
+   response: http_request_result;
+ };
+type SwapResult = 
+ variant {
+   err: SwapError;
+   ok: text;
+ };
+type SwapError = 
+ variant {
+   apiError: text;
+   invalidInput: text;
+   networkError: text;
+   notFound;
+ };
+type PredictionStatus = 
+ variant {
+   failed;
+   processing;
+   starting;
+   succeeded;
+ };
+type PollResult = 
+ variant {
+   err: SwapError;
+   ok: PollResponse;
+ };
+type PollResponse = 
+ record {
+   outputUrl: opt text;
+   status: PredictionStatus;
+ };
+service : {
+  pollFaceSwap: (predictionId: text) -> (PollResult);
+  startFaceSwap: (faceImageUrl: text, targetImageUrl: text) -> (SwapResult);
+  transform: (input: TransformationInput) -> (TransformationOutput) query;
+}
